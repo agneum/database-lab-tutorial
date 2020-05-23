@@ -1,0 +1,46 @@
+{
+  "title": "Database Lab Tutorial",
+  "description": "Boost development and testing processes via enabling ultra-fast provisioning of databases.",
+  "difficulty": "Intermediate",
+  "time": "60 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Step 1 - Prepare a machine with Docker and ZFS",
+        "text": "step1.md"
+      },
+      {
+        "title": "Step 2 - Generate an example database for testing purposes",
+        "text": "step2.md"
+      },
+      {
+        "title": "Step 3 - Prepare the first snapshot",
+        "text": "step3.md"
+      },
+      {
+        "title": "Step 4 - Configure and launch the Database Lab server",
+        "text": "step4.md"
+      },
+      {
+        "title": "Step 5 - Setup Database Lab client CLI",
+        "text": "step5.md"
+      },
+      {
+        "title": "Step 6 - Start cloning!",
+        "text": "step6.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "terminal"
+  },
+  "backend": {
+    "imageid": "ubuntu1804"
+  }
+}
