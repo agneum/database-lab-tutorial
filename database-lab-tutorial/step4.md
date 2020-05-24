@@ -1,7 +1,7 @@
 Check the Database Lab configuration:
 
 ```bash
-cat ~/config.yml
+cat ~/.dblab/configs/config.yml
 ```{{execute}}
 
 Launch your Database Lab instance:
@@ -15,7 +15,7 @@ docker run \
   --restart on-failure \
   --volume /var/run/docker.sock:/var/run/docker.sock \
   --volume /var/lib/dblab:/var/lib/dblab:rshared \
-  --volume ~/config.yml:/home/dblab/configs/config.yml \
+  --volume ~/.dblab/configs/config.yml:/home/dblab/configs/config.yml \
   --detach \
   postgresai/dblab-server:latest
 ```{{execute}}
