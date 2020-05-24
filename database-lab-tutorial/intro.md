@@ -3,7 +3,7 @@ enabling ultra-fast provisioning of multi-terabyte databases.
 
 Our steps:
 
-1. prepare a machine with two disks, Docker and ZFS,
+1. prepare a machine with ZFS,
 1. generate some PostgreSQL database for testing purposes,
 1. prepare at least one snapshot to be used for cloning,
 1. configure and launch the Database Lab server,

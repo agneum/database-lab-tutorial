@@ -1,8 +1,6 @@
-If you followed the steps described above without modification, you can use the default config with only correction: you need to put the value stored in the `$IP_OR_HOSTNAME` variable to `accessHost`. You may want to inspect all configuration options and adjust if needed. Must you need to reconfigure, edit the config file `~/.dblab/configs/config.yml`, and then re-launch the container to start using the new configuration.
+Prepare the Database Lab configuration:
 
 ```bash
-# Important: environment variable $IP_OR_HOSTNAME must be specified!
-
 mkdir -p ~/.dblab/configs
 
 cat <<CONFIG > ~/.dblab/configs/config.yml
@@ -61,7 +59,7 @@ cloning:
   mode: "base"
 
   # Host which will be specified in clone connection info.
-  accessHost: "${IP_OR_HOSTNAME}"
+  accessHost: "127.0.0.1"
 
   # Auto-delete clones after the specified minutes of inactivity.
   # 0 - disable automatic deletion.
@@ -70,14 +68,12 @@ cloning:
 debug: true
 
 CONFIG
-```
-
-> ⚠ Make sure the address used in `accessHost` is accessible from where you are going to connect to Database Lab clones (e.g., if you are going to install Joe Bot, `accessHost` must be accessible from the machine where you install Joe).
+```{{execute}}
 
 Launch your Database Lab instance:
 
 ```bash
-sudo docker run \
+docker run \
   --name dblab_server \
   --label dblab_control \
   --privileged \
@@ -88,13 +84,13 @@ sudo docker run \
   --volume ~/.dblab/configs/config.yml:/home/dblab/configs/config.yml \
   --detach \
   postgresai/dblab-server:latest
-```
+```{{execute}}
 
 Observe the logs:
 
 ```bash
-sudo docker logs dblab_server -f
-```
+docker logs dblab_server -f
+```{{execute}}
 
 Now we can check the status of the Database Lab server using a simple API call:
 ```bash
@@ -103,6 +99,4 @@ curl \
   --request GET \
   --header 'Verification-Token: secret_token' \
   http://localhost:2345/status
-```
-
-See the full API reference [here](https://postgres.ai/swagger-ui/dblab/).
+```{{execute}}

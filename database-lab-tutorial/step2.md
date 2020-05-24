@@ -1,9 +1,8 @@
 Let's generate some synthetic database with data directory ("PGDATA") located at `/var/lib/dblab/data`. 
 
-To do so we will use standard PostgreSQL tool called `pgbench`. With scale factor `-s 100`, the database size will be ~1.4 GiB.
+We will use a standard PostgreSQL tool called `pgbench`. 
 
 To generate PGDATA with `pgbench`, we are going to launch a regular Docker container with Postgres temporarily. 
-We are going to use `POSTGRES_HOST_AUTH_METHOD=trust` to allow connection without authentication. 
 
 ```bash
 docker run \
@@ -21,7 +20,7 @@ Create the `test` database:
 docker exec -it dblab_pg_initdb psql -U postgres -c 'create database test'
 ```{{execute}}
 
-Generate data in the `test` database using `pgbench`:
+Generate data in the `test` database using `pgbench`. With scale factor `-s 100`, the database size will be ~1.4 GiB:
 ```bash
 docker exec -it dblab_pg_initdb pgbench -U postgres -i -s 100 test
 ```{{execute}}
