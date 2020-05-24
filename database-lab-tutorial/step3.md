@@ -8,7 +8,7 @@ zfs set dblab:datastateat="${DATA_STATE_AT}" dblab_pool@initdb
 
 Here, we put the current data and time to `DATA_STATE_AT`, which is stored in ZFS snapshot meta data. 
 
-In a real-life scenario, this timestamp needs to correspond to a moment in time that represents the latest state of the database. 
+This timestamp needs to correspond to a moment in time that represents the latest state of the database. 
 
 > In a real-life case, you may need to promote your Postgres database when preparing a snapshot if it was in a "replica" state. 
 >

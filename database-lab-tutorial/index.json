@@ -35,6 +35,11 @@
     },
     "finish": {
       "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+        {"file": "config.yml", "target": "~/.dblab/configs/", "chmod": "+x"}
+      ]
     }
   },
   "environment": {
