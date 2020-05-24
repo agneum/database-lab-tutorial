@@ -17,16 +17,15 @@ docker run \
 
 Create the `test` database:
 ```bash
-docker exec -it dblab_pg_initdb psql -U postgres -c 'create database test'
+docker exec -it dblab_pg_initdb psql -U postgres -c 'create database workshop'
 ```{{execute}}
 
 Generate data in the `test` database using `pgbench`. With scale factor `-s 100`, the database size will be ~1.4 GiB:
 ```bash
-docker exec -it dblab_pg_initdb pgbench -U postgres -i -s 10 test
+docker exec -it dblab_pg_initdb pgbench -U postgres -i -s 100 workshop
 ```{{execute}}
 
 PGDATA is ready and now it is time to stop and delete the temporary container with Postgres:
 ```bash
 docker stop dblab_pg_initdb
-docker rm dblab_pg_initdb
 ```{{execute}}
