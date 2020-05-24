@@ -38,7 +38,7 @@
     },
     "assets": {
       "host01": [
-        {"file": "config.yml", "target": "~/.dblab/configs/", "chmod": "+x"}
+        {"file": "config.yml", "target": "~/", "chmod": "+x"}
       ]
     }
   },
