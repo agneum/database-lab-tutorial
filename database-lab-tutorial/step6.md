@@ -12,8 +12,7 @@ After a few seconds, if everything is configured correctly, you will see that th
 Now you can work with this clone using any PostgreSQL client, for example `psql`:
 ```bash
 PGPASSWORD=secret_password \
-  psql "host=127.0.0.1 port=6000 user=dblab_user_1 dbname=workshop" \
-  -c '\l+'
+  psql "host=127.0.0.1 port=6000 user=dblab_user_1 dbname=workshop" -c '\l+'
 ```{{execute}}
 
 To see the full information about the Database Lab instance, including the list of all currently available clones:
