@@ -20,8 +20,6 @@ sudo apt-get update && sudo apt-get install -y \
 
 Now it is time ot create a ZFS pool. 
 
-> Important: environment variable `$DBLAB_DISK` must be defined!
-
 ```bash
 zpool create -f \
   -O compression=on \

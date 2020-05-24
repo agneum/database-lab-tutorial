@@ -10,10 +10,6 @@ Here, we put the current data and time to `DATA_STATE_AT`, which is stored in ZF
 
 In a real-life scenario, this timestamp needs to correspond to a moment in time that represents the latest state of the database. 
 
-In other words, it has to be the timestamp of the last modifying transaction that changed something (for example, some INSERT or UPDATE).
-
 > In a real-life case, you may need to promote your Postgres database when preparing a snapshot if it was in a "replica" state. 
->
-> This will dramatically improve the timing of the creation of your thin clones.
 >
 > See [snapshot script](https://gitlab.com/postgres-ai/database-lab/-/blob/master/scripts/create_zfs_snapshot.sh) as an example how this process can be automated.
