@@ -1,11 +1,10 @@
-Install Database Lab client CLI.
+Install Database Lab client CLI:
 
 ```bash
 curl https://gitlab.com/postgres-ai/database-lab/-/raw/master/scripts/cli_install.sh | bash
 ```{{execute}}
 
-Initialize CLI and allow HTTP
-enabling `insecure` option in the config (not recommended for real-life use):
+Initialize CLI and allow HTTP enabling `insecure` option in the config (not recommended for real-life use):
 
 ```bash
 dblab init \

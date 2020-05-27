@@ -23,7 +23,7 @@ docker run \
 Observe the logs:
 
 ```bash
-docker logs dblab_server -f
+docker logs dblab_server
 ```{{execute}}
 
 Now we can check the status of the Database Lab server using a simple API call:

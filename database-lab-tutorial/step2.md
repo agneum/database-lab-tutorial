@@ -25,7 +25,7 @@ Generate data in the `test` database using `pgbench`. With scale factor `-s 100`
 docker exec -it dblab_pg_initdb pgbench -U postgres -i -s 100 workshop
 ```{{execute}}
 
-PGDATA is ready and now it is time to stop and delete the temporary container with Postgres:
+PGDATA is ready and now it is time to stop the temporary container with Postgres:
 ```bash
 docker stop dblab_pg_initdb
 ```{{execute}}

@@ -1,10 +1,23 @@
-# ci example
+CI example
 
-# run observer
+Run observer
+```bash
+dblab clone observe
+```
 
-# run easy  migration
+Run easy migration
+```sql
+select 1;
+```
+Check results
 
-# run observer
+Run observer
+```bash
+dblab clone observe
+```
 
-# run hard migration with locks
-
+Run hard migration with locks
+```sql
+create table t1 as select i, random()::text as payload from generate_series(1, 100000000) i;
+alter table t1 alter column i set not null;
+```
