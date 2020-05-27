@@ -21,7 +21,7 @@ PGPASSWORD=secret_password \
 
 Show tables:
 ```
-PGPASSWORD=secret_password \ 
+PGPASSWORD=secret_password \
   psql "${QA_CONN_STR} dbname=workshop" -c '\d+'
 ```{{execute}}
 
@@ -33,7 +33,7 @@ dblab clone reset qa_clone
 
 Show tables:
 ```
-PGPASSWORD=secret_password \ 
+PGPASSWORD=secret_password \
   psql "${QA_CONN_STR} dbname=workshop" -c '\d+'
 ```{{execute}}
 

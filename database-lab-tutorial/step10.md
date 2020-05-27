@@ -53,6 +53,6 @@ dblab clone create \
 Check tables for the clone based on the old snapshot:
 ```
 export MULTIPLE2_CONN_STR=$(dblab clone status multiple2 | jq -r '.db.connStr')
-PGPASSWORD=secret_password \ 
+PGPASSWORD=secret_password \
   psql "${MULTIPLE2_CONN_STR} dbname=workshop" -c '\d+'
 ```{{execute}}
