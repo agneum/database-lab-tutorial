@@ -7,39 +7,38 @@ dblab clone create \
   --id ci_clone
 ```{{execute}}
 
-Wait a few seconds and enter the running container: 
+Wait a few seconds and run observer in the second terminal:
 ```bash
-export CI_CLONE_NAME=dblab_clone_$(dblab clone status ci_clone | jq -r '.db.port')
+export CLONE_PASSWORD=secret_password
 
-docker exec -it ${CI_CLONE_NAME} bash 
-```{{execute}}
+dblab clone observe --interval-seconds 1 --max-duration-seconds 1 ci_clone &
+```{{execute T2}}
 
-Connect to the database:
-```
-psql -U dblab_user -d pgbench_accounts
-```{{execute}}
-
-Run observer:
+Export environment variables: 
 ```bash
-dblab clone observe-summary
+export CI_CONN_STR=dblab_clone_$(dblab clone status ci_clone | jq -r '.db.connStr')
+export CLONE_PASSWORD=secret_password
+exoprt PGPASSWORD=secret_password
 ```{{execute}}
-
-# Second terminal:
 
 Run easy migration:
 ```sql
-select 1;
+psql "${CI_CONN_STR} dbname=workshop" -c 'select 1'
 ```{{execute}}
 
-Check results.
-
-Run observer:
+Check results:
 ```bash
 dblab clone observe-summary
 ```{{execute}}
 
 Run hard migration with locks:
 ```sql
-create table t1 as select i, random()::text as payload from generate_series(1, 100000000) i;
-alter table t1 alter column i set not null;
+psql "${CI_CONN_STR} dbname=workshop" \
+-c 'create table t1 as select i, random()::text as payload from generate_series(1, 10000000) i;
+alter table t1 alter column i set not null;'
+```{{execute}}
+
+Check results again:
+```bash
+dblab clone observe-summary
 ```{{execute}}
