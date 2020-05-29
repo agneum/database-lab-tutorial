@@ -36,3 +36,8 @@ Show tables:
 PGPASSWORD=secret_password psql "${QA_CONN_STR} dbname=workshop" -c '\d+'
 ```{{execute}}
 
+Delete the clone:
+
+```bash
+dblab clone destroy qa_clone
+```{{execute}}

@@ -50,3 +50,7 @@ Quit from psql and the container:
 \q
 exit
 ```{{execute}}
+
+```bash
+dblab clone destroy dba_clone
+```{{execute}}

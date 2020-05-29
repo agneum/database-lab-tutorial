@@ -14,7 +14,7 @@ export CLONE_PASSWORD=secret_password
 dblab clone observe --interval-seconds 1 --max-lock-duration-seconds 1 --max-duration-seconds 300 -f ci_clone
 ```{{execute T2}}
 
-Export environment variables: 
+Return to the first terminal and export environment variables: 
 ```bash
 export CI_CONN_STR=$(dblab clone status ci_clone | jq -r '.db.connStr')
 export CLONE_PASSWORD=secret_password
@@ -25,8 +25,6 @@ Run easy migration:
 ```sql
 psql "${CI_CONN_STR} dbname=workshop" -c 'select 1'
 ```{{execute}}
-
-`echo "Send Ctrl+C to the running observer"`{{execute interrupt T2}}
 
 Check results:
 ```bash
@@ -43,4 +41,13 @@ alter table t1 alter column i set not null;'
 Check results again:
 ```bash
 dblab clone observe-summary
+```{{execute}}
+
+Send Ctrl+C to the running observer:
+`echo "Ctrl+C"`{{execute interrupt T2}}
+
+Return to the first terminal and delete the clone:
+
+```bash
+dblab clone destroy ci_clone
 ```{{execute}}
