@@ -19,3 +19,5 @@ Check:
 ```bash
 dblab instance status
 ```{{execute}}
+
+Congratulations! The environment is ready.

@@ -9,12 +9,15 @@ dblab clone create \
 Show tables:
 ```
 export QA_CONN_STR=$(dblab clone status qa_clone | jq -r '.db.connStr')
-PGPASSWORD=secret_password psql "${QA_CONN_STR} dbname=workshop" -c '\d+'
+
+PGPASSWORD=secret_password \
+psql "${QA_CONN_STR} dbname=workshop" -c '\d+'
 ```{{execute}}
 
 Drop table:
 ```
-PGPASSWORD=secret_password psql "${QA_CONN_STR} dbname=workshop" -c 'drop table pgbench_accounts'
+PGPASSWORD=secret_password \
+psql "${QA_CONN_STR} dbname=workshop" -c 'drop table pgbench_accounts'
 ```{{execute}}
 
 Show tables:

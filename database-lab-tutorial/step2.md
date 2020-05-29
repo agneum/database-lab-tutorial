@@ -15,12 +15,12 @@ docker run \
   postgres:12-alpine
 ```{{execute}}
 
-Create the `test` database:
+Create the `workshop` database:
 ```bash
 docker exec -it dblab_pg_initdb psql -U postgres -c 'create database workshop'
 ```{{execute}}
 
-Generate data in the `test` database using `pgbench`. With scale factor `-s 100`, the database size will be ~1.4 GiB:
+Generate data in the `workshop` database using `pgbench`. With scale factor `-s 100`, the database size will be ~1.4 GiB:
 ```bash
 docker exec -it dblab_pg_initdb pgbench -U postgres -i -s 100 workshop
 ```{{execute}}
