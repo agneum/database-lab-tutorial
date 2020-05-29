@@ -16,7 +16,7 @@ docker exec -it ${DBA_CLONE_NAME} bash
 
 Connect to the database:
 ```
-psql -U dblab_user -d pgbench_accounts
+psql -U dblab_user -d workshop
 ```{{execute}}
 
 Turn off the autovacuum:
@@ -27,13 +27,12 @@ select pg_reload_conf();
 
 Update rows:
 ```
-update pgbench_accounts set aid = aid;
-update pgbench_accounts set aid = aid; -- many times :)
+update pgbench_accounts set aid = aid where aid < 1000000;
 ```{{execute}}
 
 Check the table size:
 ```
-\d+ pgbench_accounts
+SELECT pg_size_pretty (pg_database_size ('workshop'));
 ```{{execute}}
 
 Vacuum the table:
@@ -43,10 +42,11 @@ vacuum full;
 
 Check the table size again:
 ```
-\d+ pgbench_accounts
+SELECT pg_size_pretty (pg_database_size ('workshop'));
 ```{{execute}}
 
-Quit:
+Quit from psql and the container:
 ```
 \q
+exit
 ```{{execute}}
