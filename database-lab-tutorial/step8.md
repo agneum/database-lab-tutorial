@@ -5,7 +5,7 @@ dblab clone create \
   --username dblab_user \
   --password secret_password \
   --id ci_clone
-```{{execute}}
+```{{execute T1}}
 
 Wait a few seconds and run observer in the second terminal:
 ```bash
@@ -19,29 +19,29 @@ Return to the first terminal and export environment variables:
 export CI_CONN_STR=$(dblab clone status ci_clone | jq -r '.db.connStr')
 export CLONE_PASSWORD=secret_password
 export PGPASSWORD=secret_password
-```{{execute}}
+```{{execute T1}}
 
 Run easy migration:
 ```sql
 psql "${CI_CONN_STR} dbname=workshop" -c 'select 1'
-```{{execute}}
+```{{execute T1}}
 
 Check results:
 ```bash
 dblab clone observe-summary
-```{{execute}}
+```{{execute T1}}
 
 Run hard migration with locks:
 ```sql
 psql "${CI_CONN_STR} dbname=workshop" \
 -c 'create table t1 as select i, random()::text as payload from generate_series(1, 5000000) i;
 alter table t1 alter column i set not null;'
-```{{execute}}
+```{{execute T1}}
 
 Check results again:
 ```bash
 dblab clone observe-summary
-```{{execute}}
+```{{execute T1}}
 
 Send Ctrl+C to the running observer:
 `echo "Ctrl+C"`{{execute interrupt T2}}
@@ -50,4 +50,4 @@ Return to the first terminal and delete the clone:
 
 ```bash
 dblab clone destroy ci_clone
-```{{execute}}
+```{{execute T1}}

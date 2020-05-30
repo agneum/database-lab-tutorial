@@ -1,4 +1,4 @@
-DBA way:
+Create a new clone for DBA:
 
 ```bash
 dblab clone create \
