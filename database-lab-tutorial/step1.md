@@ -1,10 +1,3 @@
-Create a regular file to mock ZFS:
-```
-truncate --size 10GB disk
-```{{execute}}
-
-Next, we have to install ZFS.
-
 Install dependencies:
 
 ```bash
@@ -16,6 +9,11 @@ sudo apt-get update && sudo apt-get install -y \
   postgresql-client \
   software-properties-common \
   zfsutils-linux
+```{{execute}}
+
+Create a regular file to mock ZFS:
+```
+truncate --size 10GB disk
 ```{{execute}}
 
 Now it is time ot create a ZFS pool. 

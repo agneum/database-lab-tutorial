@@ -15,6 +15,11 @@ PGPASSWORD=secret_password \
   psql "host=127.0.0.1 port=6000 user=dblab_user_1 dbname=workshop" -c '\l+'
 ```{{execute}}
 
+Exit from the view:
+```bash
+q
+```{{execute}}
+
 To see the full information about the Database Lab instance, including the list of all currently available clones:
 
 ```bash

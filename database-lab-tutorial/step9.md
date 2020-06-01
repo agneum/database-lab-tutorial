@@ -45,12 +45,9 @@ Check the table size again:
 SELECT pg_size_pretty (pg_database_size ('workshop'));
 ```{{execute}}
 
-Quit from psql and the container:
+Quit from psql and destroy the clone:
 ```
 \q
 exit
-```{{execute}}
-
-```bash
 dblab clone destroy dba_clone
 ```{{execute}}
