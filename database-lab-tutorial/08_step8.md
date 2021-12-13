@@ -9,8 +9,7 @@ dblab clone create \
 Wait a few seconds and enter the running container: 
 ```bash
 export DBA_CLONE_PORT=$( \
-  dblab clone status dba_clone \ 
-  | jq -r '.db.port' \
+  dblab clone status dba_clone | jq -r '.db.port' \
 )
 ```{{execute}}
 
