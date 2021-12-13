@@ -1,5 +1,4 @@
 Install Database Lab client CLI:
-
 ```bash
 curl https://gitlab.com/postgres-ai/database-lab/-/raw/master/scripts/cli_install.sh | bash
 ```{{execute}}
@@ -15,9 +14,8 @@ dblab init \
 ```{{execute}}
 
 Check:
-
 ```bash
 dblab instance status
 ```{{execute}}
 
-Congratulations! The environment is ready.
+Congratulations! Client CLI is configured and works properly.

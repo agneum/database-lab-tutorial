@@ -1,5 +1,4 @@
 Create a new clone for DBA:
-
 ```bash
 dblab clone create \
   --username dblab_user \
@@ -9,45 +8,52 @@ dblab clone create \
 
 Wait a few seconds and enter the running container: 
 ```bash
-export DBA_CLONE_NAME=dblab_clone_$(dblab clone status dba_clone | jq -r '.db.port')
+export DBA_CLONE_NAME=dblab_clone_$( \
+  dblab clone status dba_clone \
+  | jq -r '.db.port' \
+)
 
 docker exec -it ${DBA_CLONE_NAME} bash 
 ```{{execute}}
 
 Connect to the database:
-```
+```bash
 psql -U dblab_user -d workshop
 ```{{execute}}
 
 Turn off the autovacuum:
-```
+```sql
 alter system set autovacuum = off; 
 select pg_reload_conf();
 ```{{execute}}
 
 Update rows:
-```
+```sql
 update pgbench_accounts set aid = aid where aid < 1000000;
 ```{{execute}}
 
-Check the table size:
+Check the database size:
 ```
-SELECT pg_size_pretty (pg_database_size ('workshop'));
+\l+ workshop
 ```{{execute}}
 
 Vacuum the table:
-```
+```sql
 vacuum full;
 ```{{execute}}
 
-Check the table size again:
+Check the database size again:
 ```
-SELECT pg_size_pretty (pg_database_size ('workshop'));
+\l+ workshop
 ```{{execute}}
 
-Quit from psql and destroy the clone:
+Quit from psql and the container:
 ```
 \q
 exit
+```{{execute}}
+
+Destroy the clone:
+```
 dblab clone destroy dba_clone
 ```{{execute}}

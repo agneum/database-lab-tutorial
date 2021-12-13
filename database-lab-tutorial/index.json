@@ -1,56 +1,57 @@
 {
-  "title": "Database Lab Tutorial",
-  "description": "Boost development and testing processes via enabling ultra-fast provisioning of databases.",
+  "title": "Tutorial: Database Lab Engine",
+  "description": "Better testing and dev environments using ultra-fast thin cloning of databases.",
   "difficulty": "Beginner",
   "time": "60 minutes",
+  "icon": "https://postgres.ai/assets/images/dblab.svg",
   "details": {
     "steps": [
       {
-        "title": "Step 1 - Prepare a machine with Docker and ZFS",
-        "text": "step1.md"
+        "title": "Step 1. Prepare a Linux machine with Docker and ZFS",
+        "text": "01_step1.md"
       },
       {
-        "title": "Step 2 - Generate an example database for testing purposes",
-        "text": "step2.md"
+        "title": "Step 2. Generate an example database for testing purposes",
+        "text": "02_step2.md"
       },
       {
-        "title": "Step 3 - Prepare the first snapshot",
-        "text": "step3.md"
+        "title": "Step 3. Prepare the first snapshot",
+        "text": "03_step3.md"
       },
       {
-        "title": "Step 4 - Configure and launch the Database Lab server",
-        "text": "step4.md"
+        "title": "Step 4. Configure and launch the Database Lab server",
+        "text": "04_step4.md"
       },
       {
-        "title": "Step 5 - Setup Database Lab client CLI",
-        "text": "step5.md"
+        "title": "Step 5. Set up Database Lab client CLI",
+        "text": "05_step5.md"
       },
       {
-        "title": "Step 6 - Start cloning!",
-        "text": "step6.md"
+        "title": "Step 6. Start cloning!",
+        "text": "06_step6.md"
       },
       {
-        "title": "Step 7 - Feel independent",
-        "text": "step7.md"
+        "title": "Step 7. Feel independent",
+        "text": "07_step7.md"
       },
       {
-        "title": "Step 8 - Easy check",
-        "text": "step8.md"
+        "title": "Step 8. Easy check",
+        "text": "08_step8.md"
       },
       {
-        "title": "Step 9 - Feel full-size",
-        "text": "step9.md"
+        "title": "Step 9. Feel full-size",
+        "text": "09_step9.md"
       },
       {
-        "title": "Step 10 - Multiple snapshots",
-        "text": "step10.md"
+        "title": "Step 10. Multiple snapshots",
+        "text": "10_step10.md"
       }
     ],
     "intro": {
-      "text": "intro.md"
+      "text": "00_intro.md"
     },
     "finish": {
-      "text": "finish.md"
+      "text": "99_finish.md"
     },
     "assets": {
       "client": [

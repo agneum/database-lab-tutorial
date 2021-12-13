@@ -7,33 +7,37 @@ dblab clone create \
 ```{{execute}}
 
 Show tables:
-```
+```bash
 export QA_CONN_STR=$(dblab clone status qa_clone | jq -r '.db.connStr')
 
 PGPASSWORD=secret_password \
-psql "${QA_CONN_STR} dbname=workshop" -c '\d+'
+psql "${QA_CONN_STR} dbname=workshop" \
+  -c '\d+'
 ```{{execute}}
 
 Drop table:
-```
+```bash
 PGPASSWORD=secret_password \
-psql "${QA_CONN_STR} dbname=workshop" -c 'drop table pgbench_accounts'
+psql "${QA_CONN_STR} dbname=workshop" \
+  -c 'drop table pgbench_accounts'
 ```{{execute}}
 
 Show tables:
-```
-PGPASSWORD=secret_password psql "${QA_CONN_STR} dbname=workshop" -c '\d+'
+```bash
+PGPASSWORD=secret_password psql "${QA_CONN_STR} dbname=workshop" \
+  -c '\d+'
 ```{{execute}}
 
 
 Reset clone state:
-```
+```bash
 dblab clone reset qa_clone
 ```{{execute}}
 
 Show tables:
-```
-PGPASSWORD=secret_password psql "${QA_CONN_STR} dbname=workshop" -c '\d+'
+```bash
+PGPASSWORD=secret_password psql "${QA_CONN_STR} dbname=workshop" \
+  -c '\d+'
 ```{{execute}}
 
 Delete the clone:

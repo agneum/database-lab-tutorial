@@ -17,11 +17,10 @@ docker run \
   --volume /var/lib/dblab:/var/lib/dblab:rshared \
   --volume ~/.dblab/configs/config.yml:/home/dblab/configs/config.yml \
   --detach \
-  postgresai/dblab-server:latest
+  postgresai/dblab-server:0.4.3
 ```{{execute}}
 
 Observe the logs:
-
 ```bash
 docker logs dblab_server
 ```{{execute}}
