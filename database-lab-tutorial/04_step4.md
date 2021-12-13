@@ -1,7 +1,7 @@
 Check the Database Lab configuration:
 
 ```bash
-cat ~/.dblab/configs/config.yml
+cat ~/.dblab/engine/configs/server.yml
 ```{{execute}}
 
 Launch your Database Lab instance:
@@ -15,9 +15,11 @@ docker run \
   --restart on-failure \
   --volume /var/run/docker.sock:/var/run/docker.sock \
   --volume /var/lib/dblab:/var/lib/dblab:rshared \
-  --volume ~/.dblab/configs/config.yml:/home/dblab/configs/config.yml \
+  --volume ~/.dblab/engine/configs:/home/dblab/configs:ro \
+  --volume ~/.dblab/engine/meta:/home/dblab/meta \
   --detach \
-  postgresai/dblab-server:0.4.3
+  --env DOCKER_API_VERSION=1.39 \
+  registry.gitlab.com/postgres-ai/database-lab/dblab-server:master-ad697bb2
 ```{{execute}}
 
 Observe the logs:

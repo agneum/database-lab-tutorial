@@ -10,9 +10,9 @@ docker run \
   --label dblab_sync \
   --env PGDATA=/var/lib/postgresql/pgdata \
   --env POSTGRES_HOST_AUTH_METHOD=trust \
-  --volume /var/lib/dblab/data:/var/lib/postgresql/pgdata \
+  --volume /var/lib/dblab/dblab_pool/data:/var/lib/postgresql/pgdata \
   --detach \
-  postgres:12-alpine
+  postgres:14-alpine
 ```{{execute}}
 
 Create the `workshop` database:

@@ -20,9 +20,9 @@ Now it is time to create a ZFS pool.
 zpool create -f \
   -O compression=on \
   -O atime=off \
-  -O recordsize=8k \
+  -O recordsize=128k \
   -O logbias=throughput \
-  -m /var/lib/dblab/data \
+  -m /var/lib/dblab/dblab_pool \
   dblab_pool \
   "$(pwd)/disk"
 ```{{execute}}

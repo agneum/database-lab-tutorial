@@ -35,10 +35,6 @@
         "text": "07_step7.md"
       },
       {
-        "title": "Step 8. Easy check",
-        "text": "08_step8.md"
-      },
-      {
         "title": "Step 9. Feel full-size",
         "text": "09_step9.md"
       },
@@ -55,7 +51,7 @@
     },
     "assets": {
       "client": [
-        {"file": "config.yml", "target": "~/.dblab/configs/"}
+        {"file": "server.yml", "target": "~/.dblab/engine/configs"}
       ]
     }
   },
@@ -63,6 +59,6 @@
     "uilayout": "terminal"
   },
   "backend": {
-    "imageid": "ubuntu1804"
+    "imageid": "ubuntu2004"
   }
 }
